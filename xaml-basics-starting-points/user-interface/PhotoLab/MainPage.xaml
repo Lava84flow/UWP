@@ -38,8 +38,9 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="TitleTextBlock" Text="Collection" Margin="24,0,0,24" Style="{StaticResource TitleTextBlockStyle}"/>
 
         <!-- Add the TextBlock and GridView here -->
-        
+
     </Grid>
 </Page>
