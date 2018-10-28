@@ -123,40 +123,11 @@
                     Value="{StaticResource LargeItemMargin}" />
         </Style>
 
-        <DataTemplate x:Key="ImageGridView_MobileItemTemplate"
-                      x:DataType="local:ImageFileInfo">
-            <Grid Height="{Binding ItemSize, ElementName=page}"
-                  Width="{Binding ItemSize, ElementName=page}">
-                <Image x:Name="ItemImage"
-                       Source="{x:Bind ImageSource}"
-                       Stretch="UniformToFill">
-                    <ToolTipService.ToolTip>
-                        <ToolTip x:Name="tooltip">
-                            <StackPanel Orientation="Vertical"
-                                        Grid.Row="1">
-                                <TextBlock Text="{x:Bind ImageTitle, Mode=OneWay}"
-                                           HorizontalAlignment="Center"
-                                           Style="{StaticResource SubtitleTextBlockStyle}" />
-                                <StackPanel Orientation="Horizontal"
-                                            HorizontalAlignment="Center">
-                                    <TextBlock Text="{x:Bind ImageFileType}"
-                                               HorizontalAlignment="Center"
-                                               Style="{StaticResource CaptionTextBlockStyle}" />
-                                    <TextBlock Text="{x:Bind ImageDimensions}"
-                                               HorizontalAlignment="Center"
-                                               Style="{StaticResource CaptionTextBlockStyle}"
-                                               Margin="8,0,0,0" />
-                                </StackPanel>
-                            </StackPanel>
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                </Image>
-            </Grid>
-        </DataTemplate>
-
         <Style x:Key="ImageGridView_MobileItemContainerStyle"
                TargetType="GridViewItem" />
-
+        
+        <!-- Add the mobile DataTemplate here -->
+        
     </Page.Resources>
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -190,68 +161,7 @@
                   ItemContainerStyle="{StaticResource ImageGridView_DefaultItemContainerStyle}">
         </GridView>
 
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowSnapPoint}" />
-                    </VisualState.StateTriggers>
-                </VisualState>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}" />
-                    </VisualState.StateTriggers>
-                </VisualState>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="ImageGridView.ItemTemplate"
-                                Value="{StaticResource ImageGridView_MobileItemTemplate}" />
-                        <Setter Target="ImageGridView.ItemContainerStyle"
-                                Value="{StaticResource ImageGridView_MobileItemContainerStyle}" />
-
-                        <Setter Target="ZoomSlider.Minimum"
-                                Value="80" />
-                        <Setter Target="ZoomSlider.Maximum"
-                                Value="180" />
-                        <Setter Target="ZoomSlider.TickFrequency"
-                                Value="20" />
-                        <Setter Target="ZoomSlider.Value"
-                                Value="100" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <local:MobileScreenTrigger InteractionMode="Touch" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="ImageGridView.(RelativePanel.Above)"
-                                Value="MainCommandBar" />
-                        <Setter Target="ImageGridView.ItemTemplate"
-                                Value="{StaticResource ImageGridView_MobileItemTemplate}" />
-                        <Setter Target="ImageGridView.ItemContainerStyle"
-                                Value="{StaticResource ImageGridView_MobileItemContainerStyle}" />
-
-                        <Setter Target="MainCommandBar.(RelativePanel.AlignBottomWithPanel)"
-                                Value="True" />
-                        <Setter Target="MainCommandBar.(RelativePanel.AlignLeftWithPanel)"
-                                Value="True" />
-                        <Setter Target="MainCommandBar.(RelativePanel.AlignRightWithPanel)"
-                                Value="True" />
-
-                        <Setter Target="ZoomSlider.Minimum"
-                                Value="80" />
-                        <Setter Target="ZoomSlider.Maximum"
-                                Value="180" />
-                        <Setter Target="ZoomSlider.TickFrequency"
-                                Value="20" />
-                        <Setter Target="ZoomSlider.Value"
-                                Value="100" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        <!-- Add the VisualStateManager here -->
+        
     </RelativePanel>
 </Page>
